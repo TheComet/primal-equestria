@@ -1,4 +1,6 @@
 #include "pe/App.h"
+#include "pe/UISpellCrafter.h"
+#include "pe/InputMapper.h"
 
 #include <Urho3D/Engine/Engine.h>
 #include <Urho3D/Scene/Scene.h>
@@ -35,6 +37,9 @@ void App::Start()
 {
     CreateScene();
     SetupViewports();
+
+    context_->RegisterSubsystem(new InputMapper(context_));
+    context_->RegisterSubsystem(new UISpellCrafter(context_));
 
     SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(App, HandleKeyDown));
 }
@@ -73,9 +78,9 @@ void App::SetupViewports()
 void App::HandleKeyDown(StringHash eventType, VariantMap& eventData)
 {
     using namespace KeyDown;
+    int key = eventData[P_KEY].GetInt();
 
     // Check for pressing ESC
-    int key = eventData[P_KEY].GetInt();
     if(key == KEY_ESCAPE)
         engine_->Exit();
 }
