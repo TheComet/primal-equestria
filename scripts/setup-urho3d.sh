@@ -38,7 +38,7 @@ echo .gitignore > CMake/Modules/.gitignore
 echo .gitignore > CMake/Toolchains/.gitignore
 ln -s $1 urho3d
 ln -s ../urho3d/share/Urho3D/Resources/CoreData bin/CoreData
-for f in urho3d/share/Urho3D/CMake/Modules/*.cmake
+for f in urho3d/share/Urho3D/CMake/Modules/*
 do
     ln -s ../../$f CMake/Modules/$(basename $1/$f)
     echo $(basename $1/$f) >> CMake/Modules/.gitignore
