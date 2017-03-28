@@ -20,6 +20,7 @@ private:
     void CreateScene();
 
     void HandleKeyDown(Urho3D::StringHash eventType, Urho3D::VariantMap& eventData);
+    void HandleKeyUp(Urho3D::StringHash eventType, Urho3D::VariantMap& eventData);
     void SetupViewports();
 
     Urho3D::SharedPtr<Urho3D::Scene> scene_;

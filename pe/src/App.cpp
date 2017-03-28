@@ -42,6 +42,7 @@ void App::Start()
     context_->RegisterSubsystem(new UISpellCrafter(context_));
 
     SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(App, HandleKeyDown));
+    SubscribeToEvent(E_KEYUP, URHO3D_HANDLER(App, HandleKeyUp));
 }
 
 // ----------------------------------------------------------------------------
@@ -83,6 +84,19 @@ void App::HandleKeyDown(StringHash eventType, VariantMap& eventData)
     // Check for pressing ESC
     if(key == KEY_ESCAPE)
         engine_->Exit();
+
+    if (key == KEY_SPACE)
+        scene_->SetTimeScale(0.1);
+}
+
+// ----------------------------------------------------------------------------
+void App::HandleKeyUp(StringHash eventType, VariantMap& eventData)
+{
+    using namespace KeyDown;
+    int key = eventData[P_KEY].GetInt();
+
+    if (key == KEY_SPACE)
+        scene_->SetTimeScale(1.0);
 }
 
 // ----------------------------------------------------------------------------
