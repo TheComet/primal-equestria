@@ -23,7 +23,13 @@ void InputMapper::HandleKeyDown(StringHash type, VariantMap& data)
     if (key == KEY_C)
     {
         VariantMap& map = GetEventDataMap();
-        SendEvent(E_TOGGLESPELLCRAFTER, map);
+        SendEvent(E_BUTTONTOGGLESPELLCRAFTER, map);
+    }
+
+    if (key == KEY_ESCAPE)
+    {
+        VariantMap& map = GetEventDataMap();
+        SendEvent(E_BUTTONEXIT, map);
     }
 }
 

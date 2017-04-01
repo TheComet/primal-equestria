@@ -13,7 +13,7 @@ message (STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 project (PrimalEquestria)
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter")
-set (CMAKE_CXX_FLAGS_DEBUG "-DDEBUG")
+set (CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 
 set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake/Modules")
 set (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${CMAKE_SOURCE_DIR}/urho3d")
@@ -26,4 +26,3 @@ include_directories(${URHO3D_INCLUDE_DIRS})
 include_directories("pe/include")
 
 add_subdirectory ("pe")
-
